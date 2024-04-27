@@ -2,7 +2,7 @@
 
 class User{
 
-    public function login($email, $password){
+    public function signin($email, $password){
 
         global $pdo;
 
@@ -13,7 +13,7 @@ class User{
         $sql->execute();
 
         if($sql->rowCount() > 0){
-            $dado = $sql->fethc();
+            $dado = $sql->fetch();
 
             $_SESSION['id'] = $dado['iduser'];
 

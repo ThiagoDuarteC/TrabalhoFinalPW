@@ -1,6 +1,6 @@
 <?php
 
-$localhost = "localhost";
+$server = "localhost";
 $user = "root";
 $password = "";
 $database = "task";
@@ -9,12 +9,12 @@ global $pdo;
 
 try{
 
-    $pdo = new PDO("mysql:dbname=" . $database . "; host=" . $localhost, $user, $password);
+    $pdo = new PDO("mysql:dbname=" . $database . "; host=" . $server, $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 }catch(PDOException $e){
 
-    echo "ERRO: " . $e->getMessage();
+    echo "Erro de conexão: " . $e->getMessage();
     exit;
 
 }
