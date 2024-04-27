@@ -6,7 +6,7 @@ class User{
 
         global $pdo;
 
-        $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
+        $sql = "SELECT id, email, password FROM users WHERE email = :email AND password = :password";
         $sql = $pdo->prepare($sql);
         $sql->bindValue("email", $email);
         $sql->bindValue("password", $password);
@@ -15,7 +15,7 @@ class User{
         if($sql->rowCount() > 0){
             $dado = $sql->fetch();
 
-            $_SESSION['id'] = $dado['iduser'];
+            $_SESSION['user'] = $dado['email'];
 
             return true;
         } else {
