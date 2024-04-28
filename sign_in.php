@@ -27,6 +27,6 @@ if((isset($_POST["email"]) && !empty($_POST["email"])) && (isset($_POST["passwor
     }
 
 } else {
-    header("Location: home.php");
+    header("Location: index.php");
     exit();
 }
