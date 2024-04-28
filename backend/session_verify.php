@@ -2,10 +2,10 @@
 
 session_start();
 
-if(!isset($_SESSION['user']) && !str_contains($_SERVER['PHP_SELF'], 'index.html') && !str_contains($_SERVER['PHP_SELF'], 'sign_up_view.html')){
-    header('Location: ../frontend/index.html');
+if(!isset($_SESSION['user']) && $_POST['url'] != 'index' && $_POST['url'] != 'sign_up'){
+    echo 'not session';
     exit();
-} elseif (isset($_SESSION['user']) && (str_contains($_SERVER['PHP_SELF'], 'index.html') || str_contains($_SERVER['PHP_SELF'], 'sign_up_view.html'))) {
-    header('Location: ../frontend/home.html');
+} elseif (isset($_SESSION['user']) && ($_POST['url'] == 'index' || $_POST['url'] == 'sign_up')) {
+    echo 'session';
     exit();
 }
