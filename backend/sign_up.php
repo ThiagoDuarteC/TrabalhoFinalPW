@@ -14,14 +14,14 @@ if((isset($_POST["name"]) && !empty($_POST["name"])) && (isset($_POST["last_name
     $password = addslashes(trim($_POST["password"]));
 
     if($user->signup($name, $last_name, $date_of_birth, $email, $password) == true){
-        header('Location: home.php');
+        header('Location: ../frontend/home.html');
         exit();
     } else {
-        header('Location: index2.php');
+        header('Location: ../frontend/sign_up_view.html');
         exit();
     }
 
 } else {
-    header("Location: index2.php");
+    header("Location: ../frontend/sign_up_view.html");
     exit();
 }

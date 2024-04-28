@@ -12,21 +12,21 @@ if((isset($_POST["email"]) && !empty($_POST["email"])) && (isset($_POST["passwor
 
     if($user->signin($email, $password) == true){
         if(isset($_SESSION['user'])){
-            header("Location: home.php");
+            header("Location: ../frontend/home.html");
             exit();
             //REDIRECIONAR PARA TELA INICIAL LOGADO
         } else {
-            header("Location: index.html");
+            header("Location: ../frontend/index.html");
             exit();
             //REDIRECIONAR PARA A MESMA TELA COM MENSAGEM DE ERRO AO LOGAR
         }
     } else {
-        header("Location: index.html");
+        header("Location: ../frontend/index.html");
         exit();
         //REDIRECIONAR PARA A MESMA TELA COM MENSAGEM DE ERRO AO LOGAR
     }
 
 } else {
-    header("Location: index.php");
+    header("Location: ../frontend/index.html");
     exit();
 }
