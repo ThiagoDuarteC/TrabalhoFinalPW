@@ -1,6 +1,3 @@
-<!-- <?php
-    include('../backend/session_verify.php');
-?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +8,9 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <script>
         $.ajax({
 		  method: "POST",
@@ -26,18 +26,39 @@
     </script>
 </head>
 <body>
-    <form style="margin: 0 auto; text-align: center;" action="../backend/sign_in.php" method="POST">
+    <form style="margin: 0 auto; text-align: center;">
         <label for="email">E-mail:</label>
         <br>
-        <input type="email" name="email">
+        <input type="email" id="email">
         <br>
         <br>
         <label for="password">Password:</label>
         <br>
-        <input type="text" name="password">
+        <input type="text" id="password">
         <br>
         <br>
         <input type="submit">
     </form>
 </body>
 </html>
+<script>
+    $('form').submit(function(event) {
+        event.preventDefault();
+        
+        $.ajax({
+            method: "POST",
+            url: "../backend/sign_in.php",
+            data: {
+                email: $('#email').val(),
+                password: $('#password').val()
+            }
+        }).done(function(response) {
+            if ( response == 'Logado com sucesso' ) {
+                window.location.href = "home.html"
+            } else {
+                toastr.info(response);
+            }
+        });
+    });
+    
+</script>
