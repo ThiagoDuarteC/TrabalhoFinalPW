@@ -14,14 +14,11 @@ if((isset($_POST["name"]) && !empty($_POST["name"])) && (isset($_POST["last_name
     $password = addslashes(trim($_POST["password"]));
 
     if($user->signup($name, $last_name, $date_of_birth, $email, $password) == true){
-        header('Location: ../frontend/home.html');
-        exit();
+        echo 'Cadastrado com sucesso';
     } else {
-        header('Location: ../frontend/sign_up_view.html');
-        exit();
+        echo 'Ocorreu um erro, tente novamente mais tarde!';
     }
 
 } else {
-    header("Location: ../frontend/sign_up_view.html");
-    exit();
+    echo 'Os dados não podem ser vazios!';
 }

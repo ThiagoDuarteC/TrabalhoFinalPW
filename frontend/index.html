@@ -40,25 +40,28 @@
         <input type="submit">
     </form>
 </body>
-</html>
 <script>
     $('form').submit(function(event) {
         event.preventDefault();
+        let input_email = $('#email');
+        let input_password = $('#password');
         
         $.ajax({
             method: "POST",
             url: "../backend/sign_in.php",
             data: {
-                email: $('#email').val(),
-                password: $('#password').val()
+                email: input_email.val(),
+                password: input_password.val()
             }
         }).done(function(response) {
+            input_email.val('');
+            input_password.val('');
             if ( response == 'Logado com sucesso' ) {
-                window.location.href = "home.html"
+                window.location.href = "home.html";
             } else {
                 toastr.info(response);
             }
         });
-    });
-    
+    });    
 </script>
+</html>
