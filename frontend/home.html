@@ -12,17 +12,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
-        $.ajax({
-		  method: "POST",
-		  url: "../backend/session_verify.php",
-          data: { url: "home" }
-		}).done(function(response) {
-            if ( response == 'not session' ) {
-            window.location.href = "index.html"
-          } else if ( response == 'session' ) {
-            window.location.href = "home.html";
-          }
-		});
+      $.ajax({
+        method: "POST",
+        url: "../backend/session_verify.php",
+            data: { url: "home" }
+      }).done(function(response) {
+              if ( response == 'not session' ) {
+              window.location.href = "index.html"
+            } else if ( response == 'session' ) {
+              window.location.href = "home.html";
+            }
+      });
     </script>
 </head>
 <body>
@@ -30,4 +30,7 @@
     <h2>TA NO HOME</h2>
     
 </body>
+<script>
+  
+</script>
 </html>
