@@ -43,6 +43,7 @@ $sql_tasks = "CREATE TABLE IF NOT EXISTS tasks (
     title VARCHAR(255),
     description TEXT,
     status VARCHAR(100),
+    due_date TIMESTAMP,
     created_by INT(11),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
