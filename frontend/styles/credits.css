@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #BCBBDB;
+    font-family: "Montserrat", sans-serif;
+}
+
+header{
+    background-color: #070F2B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburguer-logo{
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.hamburguer-logo img:first-child{
+    width:4vw;
+    cursor: pointer;
+}
+
+.hamburguer-logo img:last-child{
+    width: 14vw;
+    cursor: pointer;
+}
+
+input{
+    width: 23vw;
+    height: 4.3vh;
+    border: 2.5px solid white;
+    border-radius: 45px; 
+    font-weight: 500;
+    color: white;
+    background: url(../assets/lupa.png)no-repeat 4px;
+    background-size: 20px;
+    padding: 10px 30px;
+    background-color: #9290C3;
+}
+
+input:focus{
+    outline: none;
+}
+
+.acesso-rapido{
+    display: flex;
+    column-gap: 2rem;
+    margin-right: 2rem;
+}
+
+.acesso-rapido img{
+    width: 2.2vw;
+    height: 5vh;
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    margin: 5vh 0;
+    color: #070F2B;
+}
+
+.creditos{
+    display: flex;
+    flex-direction: column;
+    background-color:#DBDAEB;
+    width: 50vw;
+    padding: 20px;
+    row-gap: 1rem;
+    font-size: 2rem;
+    color: #070F2B;
+    font-weight: 600;
+    border-radius: 39px;
+}
+
+.creditos a{
+    text-decoration: none;
+    width: 5vw;
+}
+
+.creditos ul{
+    list-style-type: none;
+    align-self: center;
+    text-align: center;
+}

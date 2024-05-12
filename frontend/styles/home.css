@@ -1,0 +1,147 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #BCBBDB;
+    font-family: "Montserrat", sans-serif;
+}
+
+header{
+    background-color: #070F2B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburguer-logo{
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.hamburguer-logo img:first-child{
+    width:4vw;
+    cursor: pointer;
+}
+
+.hamburguer-logo img:last-child{
+    width: 14vw;
+    cursor: pointer;
+}
+
+input{
+    width: 23vw;
+    height: 4.3vh;
+    border: 2.5px solid white;
+    border-radius: 45px; 
+    font-weight: 500;
+    color: white;
+    background: url(../assets/lupa.png)no-repeat 4px;
+    background-size: 20px;
+    padding: 10px 30px;
+    background-color: #9290C3;
+}
+
+input:focus{
+    outline: none;
+}
+
+.acesso-rapido{
+    display: flex;
+    column-gap: 2rem;
+    margin-right: 2rem;
+}
+
+.acesso-rapido img{
+    width: 2.2vw;
+    height: 5vh;
+    cursor: pointer;
+}
+
+main > h1{
+    width:10vw;
+    margin: 3vh auto;
+    color: #070F2B;
+}
+
+.tasks{
+    margin-left: 4vw;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 3rem;
+    row-gap: 1.5rem;
+    flex-wrap:wrap;
+}
+
+.card{
+    background-color:#DBDAEB;
+    color: #070F2B;
+    padding: 15px;
+    width: 28vw;
+    border-radius: 30px;
+    border-left: 7px outset #070F2B;
+    
+}
+
+.card h1{
+    font-size: 1.5rem;
+    font-weight: 640;
+}
+
+.footer-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-card p{
+    cursor: pointer;
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    width: 5vw;
+    height: auto;
+    text-align: center;
+    border: 1px solid #070F2B;
+    border-radius: 39px;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+.botoes-manipulacao{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.botoes-manipulacao img{
+    cursor: pointer;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+footer{
+    position: fixed;
+    bottom: 0.5vh;
+    margin-top: 5vh;
+}
+
+footer img{
+    height: 13vh;
+    cursor: pointer;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}

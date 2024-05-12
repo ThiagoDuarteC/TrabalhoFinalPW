@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #BCBBDB;
+    font-family: "Montserrat", sans-serif;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mulher-cadastro{
+    width: 70vw;
+    height: 100vh;
+    align-self: stretch;
+    z-index: -1;
+}
+
+.mulher-cadastro > img{
+    height: 100%;
+    width: 100%;
+}
+
+.cadastro{
+    background-color: #DBDAEB;
+    padding: 15px;
+    border-radius: 49px;
+    row-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 7vw;
+}
+
+.cadastro > img{
+    height: 5.4rem;
+}
+
+.cadastro h1{
+    text-transform: uppercase;
+    color: #070F2B;
+}
+
+.cadastro input{
+    box-sizing: content-box;
+    background-color: #DBDAEB;
+    color: #BCBBDB;
+    width: 84%;
+    height: 2rem;
+    border: 3px solid #070F2B;
+    border-radius: 49px;
+    padding: 10px 25px;
+    font-size: 1.3875rem;
+}
+
+.cadastro button{
+    width: 13.4581rem;
+    height: 3.6194rem;
+    border-radius: 49px;
+    color: white;
+    background-color: #070F2B;
+    font-weight: bold;
+    font-size: 1.5019rem;
+    cursor: pointer;
+}
+
+.nome-sobrenome{
+    display: flex;
+    column-gap: 0.5rem;
+    width: 95%;
+}
+
+.input-nome{
+    width: 84%;
+}
+
+.cadastro input:focus{
+    color: black;
+}
+
+.cadastro input:valid{
+    color: black;
+}
+
+
+

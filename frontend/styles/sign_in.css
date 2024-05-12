@@ -1,0 +1,95 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #BCBBDB;
+    font-family: "Montserrat", sans-serif;
+}
+
+main{
+    display: flex;
+    align-items: center;
+}
+
+.mulher-login{
+    width: 60vw;
+    height: 100vh;
+    align-self: stretch;
+ }
+
+ .mulher-login > img{
+    height: 100%;
+    width: 100%;
+ }
+
+.form-e-trocasenha{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.3rem;
+    position: relative;
+    top: 2vh;
+    right: 8vw;
+}
+
+.form-e-trocasenha > form{
+    background-color: #DBDAEB;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1rem;
+    border-radius: 49px;
+    padding: 15px;
+}
+
+.form-e-trocasenha img{
+    height: 5.4rem;
+}
+
+.form-e-trocasenha h1{
+    text-transform: uppercase;
+    color: #070F2B;
+}
+
+.form-e-trocasenha input{
+    box-sizing: content-box;
+    background-color: #DBDAEB;
+    width: 84%;
+    height: 2rem;
+    border: 3px solid #070F2B;
+    border-radius: 49px;
+    padding: 10px 25px;
+    font-size: 1.3875rem;
+}
+
+.form-e-trocasenha button{
+    width: 13.4581rem;
+    height: 3.6194rem;
+    border-radius: 49px;
+    color: white;
+    background-color: #070F2B;
+    font-weight: bold;
+    font-size: 1.5019rem;
+    cursor: pointer;
+}
+
+.link{
+    cursor: pointer;
+    color:#0C32B8;
+    font-size: 1.4375rem;
+}
+
+.esqueceu-senha{
+    font-size: 1.4375rem;
+    align-self: stretch;
+    background-color:#DBDAEB;
+    padding: 30px;
+    border-radius: 39px;
+    box-sizing: border-box;
+}
