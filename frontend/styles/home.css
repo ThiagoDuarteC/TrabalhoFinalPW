@@ -36,7 +36,7 @@ header{
     cursor: pointer;
 }
 
-input{
+header input{
     width: 23vw;
     height: 4.3vh;
     border: 2.5px solid white;
@@ -144,4 +144,34 @@ footer img{
     -moz-user-select: none;    
     -ms-user-select: none;      
     user-select: none;
+}
+
+.modal-header{
+    font-family: "Montserrat", sans-serif;
+    background-color: #BCBBDB;
+}
+
+.modal-body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #BCBBDB;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.modal-body input, textarea{
+    background-color: #DBDAEB;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.modal-footer{
+    font-family: "Montserrat", sans-serif;
+    background-color: #BCBBDB;
 }
