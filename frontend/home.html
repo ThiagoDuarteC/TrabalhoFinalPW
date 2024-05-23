@@ -283,7 +283,7 @@
                 console.log(response)
                 if (response === 'Atividade criada com sucesso.') {
                     toastr.success(response);
-                    $('#tasks').empty();
+                    $('.tasks').empty();
                     loadTasks();
 
                     $('#title').val('');
