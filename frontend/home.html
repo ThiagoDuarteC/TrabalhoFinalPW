@@ -52,37 +52,25 @@
         </div>
     </header>
     <main>
-        <h1>Atividades</h1>
-        <div class="tasks">
-            <div class="card">
-                <h1>Trabalho do Luiz Felipe</h1>
-                <p>Criar um gestor de atividades Web.</p>
-                <div class="footer-card">
-                    <p data-bs-toggle="modal" data-bs-target="#view-modal">&#x2022;&#x2022;&#x2022;</p>
-                    <div class="botoes-manipulacao">
-                        <img src="assets/botao-editar.png" alt="Botão para editar cartão">
-                        <img src="assets/botao-excluir.png" alt="Botão para excluir cartão">
-                        <img src="assets/botao-concluir.png" alt="Botão para concluir cartão">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1 class="fw-bold">Atividades</h1>
+        <div class="tasks"></div>
     </main>
     <footer>
         <img src="assets/botao-adicionar.png" alt="Botão de adicionar nova tarefa" class="btn" data-bs-toggle="modal"
             data-bs-target="#create-modal">
     </footer>
+
     <div id="create-modal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Adicionar Nova Tarefa</h3>
+                    <h3 class="fw-bold modal-title">Adicionar Nova Tarefa</h3>
                     <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <div class="modal-body">
                     <fieldset>
-                        <label>Nome da Tarefa</label>
+                        <label>Título da Tarefa</label>
                         <input id="title" type="text" required>
                     </fieldset>
 
@@ -109,30 +97,30 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Editar Tarefa</h3>
+                    <h3 class="fw-bold -title">Editar Tarefa</h3>
                     <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <div class="modal-body">
                     <fieldset>
-                        <label>Nome da Tarefa</label>
-                        <input id="title" type="text" required>
+                        <label>Título da Tarefa</label>
+                        <input id="title-edit" type="text" required>
                     </fieldset>
 
                     <fieldset>
                         <label>Descrição da Tarefa</label>
-                        <input id="description" type="text" required>
+                        <input id="description-edit" type="text" required>
                     </fieldset>
 
                     <fieldset>
                         <label>Data de Conclusão</label>
-                        <input id="due_date" type="date" required>
+                        <input id="due_date-edit" type="date" required>
                     </fieldset>
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-edit">Atualizar</button>
                 </div>
             </div>
         </div>
@@ -142,30 +130,30 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Adicionar Nova Tarefa</h3>
+                    <h3 class="fw-bold modal-title">Visualizar Tarefa</h3>
                     <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <div class="modal-body">
                     <fieldset>
-                        <label>Nome da Tarefa</label>
-                        <input type="text" required>
+                        <h5>Título da Tarefa</h5>
+                        <p id="title-view"></p>
                     </fieldset>
 
                     <fieldset>
-                        <label>Descrição da Tarefa</label>
-                        <textarea></textarea>
+                        <h5>Descrição da Tarefa</h5>
+                        <p id="description-view"></p>
                     </fieldset>
 
                     <fieldset>
-                        <label>Data de Conclusão</label>
-                        <input type="date" required>
+                        <h5>Data de Criação</h5>
+                        <p id="created_at-view"></p>
                     </fieldset>
-                </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                    <fieldset>
+                        <h5>Data de Conclusão</h5>
+                        <p id="due_date-view"></p>
+                    </fieldset>
                 </div>
             </div>
         </div>
@@ -175,8 +163,8 @@
     $(document).ready(function () {
 
         function truncateString(str) {
-            if (str.length > 35) {
-                return str.slice(0, 35) + "...";
+            if (str.length > 50) {
+                return str.slice(0, 50) + "...";
             }
             return str;
         }
@@ -211,12 +199,12 @@
                                     <h1>${task_title}</h1>
                                     <p>${truncateString(task_description)}.</p>
                                     <div class="footer-card">
-                                        <p data-bs-toggle="modal" id="show-view" data-id="${task_id}">&#x2022;&#x2022;&#x2022;</p>
+                                        <p data-id="${task_id}">&#x2022;&#x2022;&#x2022;</p>
                                         ${dueDateClass}
                                         <div class="botoes-manipulacao">
-                                            <img src="assets/botao-editar.png" data-id="${task_id}" alt="Botão para editar cartão">
-                                            <img src="assets/botao-excluir.png" data-id="${task_id}" alt="Botão para excluir cartão">
-                                            <img src="assets/botao-concluir.png" data-id="${task_id}" alt="Botão para concluir cartão">
+                                            <img src="assets/botao-editar.png" id="btn-modal-edit" data-id="${task_id}" alt="Botão para editar cartão">
+                                            <img src="assets/botao-excluir.png" id="btn-delete" data-id="${task_id}" alt="Botão para excluir cartão">
+                                            <img src="assets/botao-concluir.png" id="btn-complete" data-id="${task_id}" alt="Botão para concluir cartão">
                                         </div>
                                     </div>
                                 </div>
@@ -240,12 +228,9 @@
                                     <h1>${task_title}</h1>
                                     <p>${truncateString(task_description)}.</p>
                                     <div class="footer-card">
-                                        <p data-bs-toggle="modal" id="show-view" data-id="${task_id}">&#x2022;&#x2022;&#x2022;</p>
-                                        <span class="badge bg-success p-2">Concluido</span>
+                                        <p data-id="${task_id}">&#x2022;&#x2022;&#x2022;</p>
                                         <div class="botoes-manipulacao">
-                                            <img src="assets/botao-editar.png" data-id="${task_id}" alt="Botão para editar cartão">
-                                            <img src="assets/botao-excluir.png" data-id="${task_id}" alt="Botão para excluir cartão">
-                                            <img src="assets/botao-concluir.png" data-id="${task_id}" alt="Botão para concluir cartão">
+                                            <span class="badge bg-success p-2">Concluido</span>
                                         </div>
                                     </div>
                                 </div>
@@ -280,9 +265,11 @@
                     due_date: input_due_date
                 }
             }).done(function (response) {
-                console.log(response)
                 if (response === 'Atividade criada com sucesso.') {
                     toastr.success(response);
+                    $('#create-modal').modal('hide');
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
                     $('.tasks').empty();
                     loadTasks();
 
@@ -296,6 +283,143 @@
                 toastr.error(error);
             })
         });
+
+        var task_id
+
+        $(document).on('click', '#btn-modal-edit', function () {
+            task_id = $(this).data('id')
+
+            $.ajax({
+                method: "POST",
+                url: "../backend/show.php",
+                data: {
+                    id: task_id
+                },
+                dataType: "json",
+            }).done(function (response) {
+                if (response === "Atividade não encontrada.") {
+                    toastr.error(response);
+                } else {
+                    $('#title-edit').val(response.title);
+                    $('#description-edit').val(response.description);
+                    $('#due_date-edit').val(response.due_date.replace(/(\d*)-(\d*)-(\d*).*/, '$1-$2-$3'))
+                    $('#edit-modal').modal('show')
+                }
+            }).fail(function (xhr, status, error) {
+                toastr.error(error);
+            })
+        });
+
+        $(document).on('click', '#btn-delete', function () {
+            task_id = $(this).data('id')
+
+            $.ajax({
+                method: "POST",
+                url: "../backend/destroy.php",
+                data: {
+                    id: task_id
+                },
+            }).done(function (response) {
+                if (response === "Atividade excluida com sucesso.") {
+                    toastr.success(response);
+                    $('.tasks').empty();
+                    loadTasks();
+                } else {
+                    toastr.error(response);
+                }
+            }).fail(function (xhr, status, error) {
+                toastr.error(error);
+            })
+        });
+
+        $(document).on('click', '#btn-complete', function () {
+            task_id = $(this).data('id')
+
+            $.ajax({
+                method: "POST",
+                url: "../backend/completed.php",
+                data: {
+                    id: task_id
+                },
+            }).done(function (response) {
+                if (response === "Atividade completada com sucesso.") {
+                    toastr.success(response);
+                    $('.tasks').empty();
+                    loadTasks();
+                } else {
+                    toastr.error(response);
+                }
+            }).fail(function (xhr, status, error) {
+                toastr.error(error);
+            })
+        });
+
+        $(document).on('click', '.footer-card p', function () {
+            task_id = $(this).data('id')
+
+            $.ajax({
+                method: "POST",
+                url: "../backend/show.php",
+                data: {
+                    id: task_id
+                },
+                dataType: "json",
+            }).done(function (response) {
+                if (response === "Atividade não encontrada.") {
+                    toastr.error(response);
+                } else {
+                    $('#title-view').text(response.title);
+                    $('#description-view').text(response.description);
+                    $('#due_date-view').text(response.due_date.replace(/(\d{4})-(\d{2})-(\d{2}).*/, '$3/$2/$1'))
+                    $('#created_at-view').text(response.created_at.replace(/(\d{4})-(\d{2})-(\d{2}).*/, '$3/$2/$1'))
+                    $('#view-modal').modal('show')
+                }
+            }).fail(function (xhr, status, error) {
+                toastr.error(error);
+            })
+        });
+
+        $("#btn-edit").click(function () {
+
+            var input_title = $("#title-edit").val();
+            var input_description = $("#description-edit").val();
+            var input_due_date = $("#due_date-edit").val();
+
+            $.ajax({
+                method: "POST",
+                url: "../backend/update.php",
+                data: {
+                    id: task_id,
+                    title: input_title,
+                    description: input_description,
+                    due_date: input_due_date
+                }
+            }).done(function (response) {
+                if (response === 'Atividade atualizada com sucesso.') {
+                    toastr.success(response);
+                    $('#edit-modal').modal('hide')
+                    $('.tasks').empty();
+                    loadTasks();
+
+                    $('#title-edit').val('');
+                    $('#description-edit').val('');
+                    $('#due_date-edit').val('');
+                    task_id = ''
+                } else {
+                    toastr.error(response);
+                }
+            }).fail(function (xhr, status, error) {
+                toastr.error(error);
+            })
+        });
+
+        $('.btn-danger').on('click', function () {
+            setTimeout(function () {
+                $('#title').val('');
+                $('#description').val('');
+                $('#due_date').val('');
+            }, 500);
+        })
 
     })
 </script>

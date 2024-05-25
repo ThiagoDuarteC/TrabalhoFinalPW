@@ -39,6 +39,27 @@ class Task{
         return true;
     }
 
+    public function show($id){
+        global $pdo;
+
+        $current_user = $_SESSION['user'];
+
+        $sql = "SELECT * FROM tasks WHERE created_by = :current_user AND deleted_at IS NULL AND id = :id";
+        $sql = $pdo->prepare($sql);
+
+        $sql->bindValue(':current_user', $current_user);
+        $sql->bindValue(':id', $id);
+
+        try {
+            $sql->execute();
+            $tasks = $sql->fetch(PDO::FETCH_ASSOC);
+            return json_encode($tasks);
+        } catch (PDOException $e) {
+            return false;
+        }
+
+    }
+
     public function update($title, $description, $due_date, $id){
         global $pdo;
 

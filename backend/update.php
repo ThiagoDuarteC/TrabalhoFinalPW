@@ -1,6 +1,6 @@
 <?php
 
-if((isset($_POST["title"]) && !empty($_POST["title"])) && (isset($_POST["description"]) && !empty($_POST["description"])) && (isset($_POST["due_date"]) && !empty($_POST["due_date"]))){
+if((isset($_POST["id"]) && !empty($_POST["id"])) && (isset($_POST["title"]) && !empty($_POST["title"])) && (isset($_POST["description"]) && !empty($_POST["description"])) && (isset($_POST["due_date"]) && !empty($_POST["due_date"]))){
     
     require_once('connection.php');
     require 'class/task.class.php';
