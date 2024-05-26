@@ -7,7 +7,7 @@ class Task{
 
         $current_user = $_SESSION['user'];
 
-        $sql = "SELECT * FROM tasks WHERE created_by = :current_user AND deleted_at IS NULL";
+        $sql = "SELECT * FROM tasks WHERE created_by = :current_user AND deleted_at IS NULL ORDER BY due_date ASC";
         $sql = $pdo->prepare($sql);
 
         $sql->bindValue(':current_user', $current_user);

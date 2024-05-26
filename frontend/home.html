@@ -42,13 +42,13 @@
     <header>
         <div class="hamburguer-logo">
             <img src="assets/menu-hamburguer.png" alt="ìcone menu-hamburguer">
-            <img src="assets/site-logo-branco.png" alt="Logo do site" id="site-logo">
+            <a href="home.html"><img src="assets/site-logo-branco.png" alt="Logo do site" id="site-logo"></a>
         </div>
         <input type="text" name="">
         <div class="acesso-rapido">
             <img src="assets/notificações.png" alt="notificações">
-            <img src="assets/perfil.png" alt="Ícone de perfil">
-            <img src="assets/botao-sair.png" alt="Botão sair">
+            <a href="credits.html"><img src="assets/perfil.png" alt="Ícone de perfil"></a>
+            <img src="assets/botao-sair.png" id="sign_out" alt="Botão sair">
         </div>
     </header>
     <main>
@@ -419,6 +419,17 @@
                 $('#description').val('');
                 $('#due_date').val('');
             }, 500);
+        })
+
+        $('#sign_out').click(function () {
+            $.ajax({
+                method: "POST",
+                url: "../backend/sign_out.php",
+            }).done(function (response) {
+                window.location.href = "index.html"
+            }).fail(function (xhr, status, error) {
+                toastr.error(error);
+            })
         })
 
     })

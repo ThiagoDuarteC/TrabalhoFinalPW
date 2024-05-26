@@ -83,6 +83,7 @@ main{
     cursor: pointer;
     color:#0C32B8;
     font-size: 1.4375rem;
+    text-decoration: none;
 }
 
 .esqueceu-senha{
