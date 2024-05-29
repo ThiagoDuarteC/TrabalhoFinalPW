@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/sign_in.css">
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <title>Login</title>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+
         $.ajax({
-		  method: "POST",
-		  url: "../backend/session_verify.php",
-          data: { url: "index" }
-		}).done(function(response) {
-		  if ( response == 'not session' ) {
-            window.location.href = "index.html"
-          } else if ( response == 'session' ) {
-            window.location.href = "home.html";
-          }
-		});
+            method: "POST",
+            url: "../backend/database.php",
+        })
+
+        $.ajax({
+            method: "POST",
+            url: "../backend/session_verify.php",
+            data: { url: "index" }
+        }).done(function (response) {
+            if (response == 'not session') {
+                window.location.href = "index.html"
+            } else if (response == 'session') {
+                window.location.href = "home.html";
+            }
+        });
     </script>
 </head>
+
 <body>
     <main>
         <div class="mulher-login">
@@ -44,11 +55,11 @@
         </div>
     </main>
     <script>
-        $('form').submit(function(event) {
+        $('form').submit(function (event) {
             event.preventDefault();
             let input_email = $('#email');
             let input_password = $('#password');
-            
+
             $.ajax({
                 method: "POST",
                 url: "../backend/sign_in.php",
@@ -56,10 +67,10 @@
                     email: input_email.val(),
                     password: input_password.val()
                 }
-            }).done(function(response) {
+            }).done(function (response) {
                 input_email.val('');
                 input_password.val('');
-                if ( response == 'Logado com sucesso' ) {
+                if (response == 'Logado com sucesso') {
                     window.location.href = "home.html";
                 } else {
                     toastr.info(response);
