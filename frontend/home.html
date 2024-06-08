@@ -56,8 +56,7 @@
         <div class="tasks"></div>
     </main>
     <footer>
-        <img src="assets/botao-adicionar.png" alt="Botão de adicionar nova tarefa" class="btn" data-bs-toggle="modal"
-            data-bs-target="#create-modal">
+        <img src="assets/botao-adicionar.png" alt="Botão de adicionar nova tarefa" class="btn call-create">
     </footer>
 
     <div id="create-modal" class="modal fade">
@@ -161,6 +160,18 @@
 </body>
 <script>
     $(document).ready(function () {
+
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+
+        $('#due_date').val(formattedDate);
+        
+        $('.call-create').click(function(){
+            $('#create-modal').modal('show')
+        })  
 
         function truncateString(str) {
             if (str.length > 50) {
